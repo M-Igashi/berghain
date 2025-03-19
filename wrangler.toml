@@ -1,0 +1,8 @@
+name = "berghain"
+main = "src/index.ts"
+compatibility_date = "2024-03-01"
+
+[[d1_databases]]
+binding = "lineup"  # ← これがバインディング名
+database_name = "lineup"  # Cloudflare D1 で設定したデータベース名
+database_id = "f1c358a9-4f64-47cf-81fd-5d9d80a35c98"  # D1 DB のUUID
