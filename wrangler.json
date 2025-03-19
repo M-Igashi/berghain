@@ -1,0 +1,16 @@
+{
+  "compatibility_date": "2024-11-01",
+  "main": "src/index.ts",
+  "name": "berghain",
+  "upload_source_maps": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_id": "f1c358a9-4f64-47cf-81fd-5d9d80a35c98",
+      "database_name": "lineup"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
