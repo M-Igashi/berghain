@@ -1,4 +1,4 @@
-name = "berghain-api-production"
+name = "berghain-api"
 main = "src/index.ts"
 compatibility_date = "2024-03-20"
 account_id = "e611850c31bf52879f8dc10f7cff6686"
@@ -9,9 +9,8 @@ database_id = "9962a30e-5078-491d-951d-2c2b8b17d9c1"
 database_name = "lineup"
 
 [env.production]
-zone_id = "2aac368de6eaf231b0ca667f9a6ea5d4"
 route = "https://klubnacht.tyna.ninja/api/*"
-
+zone_id = "2aac368de6eaf231b0ca667f9a6ea5d4"
 [[env.production.d1_databases]]
 binding = "lineup"
 database_id = "9962a30e-5078-491d-951d-2c2b8b17d9c1"
