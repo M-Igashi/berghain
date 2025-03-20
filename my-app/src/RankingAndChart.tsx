@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://klubnacht.tyna.ninja/api'; // 固定URLに変更
+// APIを直接Workers URLに固定
+const API_BASE_URL = 'https://klubnacht.tyna.ninja/api';
 
 interface RankingItem {
   artist_name: string;
@@ -39,7 +40,7 @@ const RankingAndChart = () => {
       <ul>
         {ranking.map((item, index) => (
           <li key={index} className="mb-2">
-            {item.artist_name} - {item.appearances} 回
+            {item.artist_name} - {item.appearances} 回出演
           </li>
         ))}
       </ul>
