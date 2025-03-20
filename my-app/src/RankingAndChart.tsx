@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://klubnacht.tyna.ninja/api';
+const API_BASE_URL = `${window.location.origin}/api`;
+
+
 
 interface RankingItem {
   name: string;
