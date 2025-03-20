@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = `https://klubnacht.tyna.ninja/api`;
+const API_BASE_URL = 'https://klubnacht.tyna.ninja/api';
 
 interface RankingItem {
   name: string;
@@ -61,13 +61,18 @@ const RankingAndChart = () => {
       {error && <p className="text-red-500 mb-4">{error}</p>}
       <ul>
         {ranking.map((item, index) => (
-          <li key={index} className="mb-2">{item.name} - {item.count}</li>
+          <li key={index} className="mb-2">
+            {item.name} - {item.count}
+          </li>
         ))}
       </ul>
+
       <h2 className="text-lg font-bold mt-8 mb-4">年間統計 (計算結果)</h2>
       <ul>
         {yearlyStats.map((stat, index) => (
-          <li key={index} className="mb-2">{stat.year}: {stat.total}</li>
+          <li key={index} className="mb-2">
+            {stat.year}: {stat.total}
+          </li>
         ))}
       </ul>
     </div>
