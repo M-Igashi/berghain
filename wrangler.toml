@@ -10,8 +10,13 @@ database_id = "9962a30e-5078-491d-951d-2c2b8b17d9c1"
 database_name = "lineup"
 
 [env.production]
-route = "https://klubnacht.tyna.ninja/api/*"
+route = "https://berghain.pages.dev/api/*"
 zone_id = "2aac368de6eaf231b0ca667f9a6ea5d4"
+[[env.production.d1_databases]]
+binding = "lineup"
+database_id = "9962a30e-5078-491d-951d-2c2b8b17d9c1"
+database_name = "lineup"
+
 [[env.production.d1_databases]]
 binding = "lineup"
 database_id = "9962a30e-5078-491d-951d-2c2b8b17d9c1"
