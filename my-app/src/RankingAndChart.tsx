@@ -29,23 +29,16 @@ const RankingAndChart = () => {
             end: '2024-12-31',
           },
         });
-
-        if (response.data && Array.isArray(response.data)) {
-          setRanking(response.data);
-          calculateYearlyStats(response.data);
-        } else {
-          throw new Error('API から無効な形式のレスポンスが返されました。');
-        }
+        setRanking(response.data);
+        calculateYearlyStats(response.data);
       } catch (err) {
-        console.error('ランキングデータ取得エラー:', err);
-        setError(
-          'Berghain 出演ランキングチャート\nランキングデータの取得に失敗しました。時間を置いて再度お試しください。'
-        );
+        console.error('Error fetching ranking:', err);
+        setError('Failed to fetch ranking data. Please try again later.');
       }
     };
 
     const calculateYearlyStats = (rankingData: RankingItem[]) => {
-      const statsMap: { [year: string]: number } = {};
+      const statsMap: { [key: string]: number } = {};
       rankingData.forEach((item) => {
         const year = new Date(item.date).getFullYear().toString();
         statsMap[year] = (statsMap[year] || 0) + item.count;
@@ -64,29 +57,20 @@ const RankingAndChart = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-xl font-bold mb-4">Berghain 出演ランキングチャート</h1>
-      <h2 className="text-lg font-bold mb-4">ランキング</h2>
-      {error && <p className="text-red-500 mb-4 whitespace-pre-line">{error}</p>}
+      <h1 className="text-xl font-bold mb-4">Ranking</h1>
+      {error && <p className="text-red-500 mb-4">{error}</p>}
       <ul>
         {ranking.map((item, index) => (
-          <li key={index} className="mb-2">
-            {item.name} - {item.count}
-          </li>
+          <li key={index} className="mb-2">{item.name} - {item.count}</li>
         ))}
       </ul>
 
-      <h2 className="text-lg font-bold mt-8 mb-4">年間統計 (計算結果)</h2>
+      <h2 className="text-lg font-bold mt-8 mb-4">Yearly Stats (calculated)</h2>
       <ul>
         {yearlyStats.map((stat, index) => (
-          <li key={index} className="mb-2">
-            {stat.year}: {stat.total}
-          </li>
+          <li key={index} className="mb-2">{stat.year}: {stat.total}</li>
         ))}
       </ul>
-
-      <footer className="mt-8 text-gray-500 text-sm">
-        © 2025 Berghain Stats Viewer
-      </footer>
     </div>
   );
 };
