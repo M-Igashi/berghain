@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-// APIを直接Workers URLに固定
-const API_BASE_URL = 'https://klubnacht.tyna.ninja/api';
+// APIをCloudflare Worker経由URLに変更
+const API_BASE_URL = 'https://berghain.pages.dev/api';
 
 interface RankingItem {
   artist_name: string;
@@ -18,7 +18,7 @@ const RankingAndChart = () => {
 
     const fetchRanking = async () => {
       try {
-        const response = await axios.get(`https://klubnacht.tyna.ninja/api/ranking`, {
+        const response = await axios.get(`${API_BASE_URL}/ranking`, {
           params: {
             stage: 'Berghain',
             start: '2024-01-01',  // TODO: 将来的に動的に変更可能にする
