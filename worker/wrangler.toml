@@ -7,8 +7,9 @@ account_id = "e611850c31bf52879f8dc10f7cff6686"
 command = ""
 
 [[routes]]
-pattern = "tyna.ninja/api/*"
+pattern = "berghain.tyna.ninja/api/*"
 zone_id = "2aac368de6eaf231b0ca667f9a6ea5d4"
+
 
 [[routes]]
 pattern = "berghain.pages.dev/api/*"
