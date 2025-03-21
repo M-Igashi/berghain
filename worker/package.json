@@ -1,0 +1,13 @@
+{
+  "name": "berghain-worker",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "deploy": "npx wrangler deploy"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "wrangler": "^4.3.0"
+  }
+}
