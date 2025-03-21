@@ -14,18 +14,21 @@ const RankingAndChart = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    console.log('API_BASE_URL:', API_BASE_URL); // デバッグ確認用
+
     const fetchRanking = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/ranking`, {
+        const response = await axios.get(`https://klubnacht.tyna.ninja/api/ranking`, {
           params: {
             stage: 'Berghain',
-            start: '2024-01-01',
+            start: '2024-01-01',  // TODO: 将来的に動的に変更可能にする
             end: '2024-12-31',
           },
         });
+        console.log('取得したデータ:', response.data);
         setRanking(response.data);
-      } catch (err) {
-        console.error('Error fetching ranking:', err);
+      } catch (err: any) {
+        console.error('ランキング取得時エラー:', err?.message || err);
         setError('ランキングデータの取得に失敗しました。時間を置いて再度お試しください。');
       }
     };
