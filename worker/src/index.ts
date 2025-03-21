@@ -2,6 +2,7 @@ export default {
   async fetch(request: Request): Promise<Response> {
     const url = new URL(request.url);
 
+    // CORS 対応
     if (request.method === 'OPTIONS') {
       return new Response(null, {
         status: 204,
@@ -14,13 +15,13 @@ export default {
       });
     }
 
+    // Worker でループしないよう、内部呼び出しは Workers URL を指定
     if (url.pathname.startsWith('/api')) {
-      const apiUrl = `https://klubnacht.tyna.ninja${url.pathname}${url.search}`;
-      const apiResponse = await fetch(apiUrl, { method: request.method });
-      const apiData = await apiResponse.text();
-
-      return new Response(apiData, {
-        status: apiResponse.status,
+      const targetUrl = `https://klubnacht.tyna.ninja${url.pathname}${url.search}`;
+      const response = await fetch(targetUrl, { method: request.method });
+      const text = await response.text();
+      return new Response(text, {
+        status: response.status,
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
