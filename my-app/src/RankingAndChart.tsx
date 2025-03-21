@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 // APIをCloudflare Worker経由URLに変更
-const API_BASE_URL = 'https://berghain.pages.dev/api';
+const API_BASE_URL = 'https://klubnacht.tyna.ninja/api';
+
 
 interface RankingItem {
   artist_name: string;

@@ -1,7 +1,5 @@
-
-
 name = "berghain-api-production"
-main = "src/index.ts"
+main = "./src/index.ts"
 compatibility_date = "2024-03-01"
 account_id = "e611850c31bf52879f8dc10f7cff6686"
 
@@ -9,6 +7,9 @@ account_id = "e611850c31bf52879f8dc10f7cff6686"
 command = ""
 
 [[routes]]
-pattern = "tyna.ninja/api/*"  # ← 独自ドメイン名を指定
+pattern = "tyna.ninja/api/*"
 zone_id = "2aac368de6eaf231b0ca667f9a6ea5d4"
 
+[[routes]]
+pattern = "berghain.pages.dev/api/*"
+custom_domain = false

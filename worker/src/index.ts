@@ -16,10 +16,17 @@ export default {
 
     if (url.pathname.startsWith('/api')) {
       const apiUrl = `https://klubnacht.tyna.ninja${url.pathname}${url.search}`;
-      const response = await fetch(apiUrl, { method: request.method });
-      const text = await response.text();
-      return new Response(text, {
-        status: response.status,
+      const upstreamResponse = await fetch(apiUrl, {
+        method: request.method,
+        headers: { 'Accept': 'application/json' },  // 追加
+      });
+
+      // JSONとして取得を試みる
+      const data = await upstreamResponse.text();
+      console.log('Upstream response:', data);
+
+      return new Response(data, {
+        status: upstreamResponse.status,
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
